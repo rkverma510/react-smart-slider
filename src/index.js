@@ -5,6 +5,8 @@ import Slide from "./components/slide";
 import Indicator from "./components/indicator";
 import ButtonWrapper from "./components/button-wrapper";
 
+const AUTO_SLIDE_INTERVAL = 3000
+
 const MainContainer = styled.div({
   position: "relative",
 })
@@ -28,8 +30,9 @@ class SmartSlider extends React.Component {
 
   componentDidMount() {
     const { autoSlide, autoSlideInterval } = this.props;
+    const autoSlideIntVal = autoSlideInterval && autoSlideInterval >= AUTO_SLIDE_INTERVAL ? autoSlideInterval : AUTO_SLIDE_INTERVAL
     this.timer = autoSlide ?
-      setInterval(this.autoSlide.bind(this), autoSlideInterval) :
+      setInterval(this.autoSlide.bind(this), autoSlideIntVal) :
       null;
   }
 
@@ -133,7 +136,7 @@ SmartSlider.defaultProps = {
   }],
   showIndicator: true,
   autoSlide: false,
-  autoSlideInterval: 3000,
+  autoSlideInterval: AUTO_SLIDE_INTERVAL,
 };
 
 export default SmartSlider;

@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 21);
+/******/ 	return __webpack_require__(__webpack_require__.s = 22);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -269,7 +269,7 @@ module.exports = require("react");
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__emotion_styled_base__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__emotion_styled_base__ = __webpack_require__(18);
 
 
 var tags = ['a', 'abbr', 'address', 'area', 'article', 'aside', 'audio', 'b', 'base', 'bdi', 'bdo', 'big', 'blockquote', 'body', 'br', 'button', 'canvas', 'caption', 'cite', 'code', 'col', 'colgroup', 'data', 'datalist', 'dd', 'del', 'details', 'dfn', 'dialog', 'div', 'dl', 'dt', 'em', 'embed', 'fieldset', 'figcaption', 'figure', 'footer', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header', 'hgroup', 'hr', 'html', 'i', 'iframe', 'img', 'input', 'ins', 'kbd', 'keygen', 'label', 'legend', 'li', 'link', 'main', 'map', 'mark', 'marquee', 'menu', 'menuitem', 'meta', 'meter', 'nav', 'noscript', 'object', 'ol', 'optgroup', 'option', 'output', 'p', 'param', 'picture', 'pre', 'progress', 'q', 'rp', 'rt', 'ruby', 's', 'samp', 'script', 'section', 'select', 'small', 'source', 'span', 'strong', 'style', 'sub', 'summary', 'sup', 'table', 'tbody', 'td', 'textarea', 'tfoot', 'th', 'thead', 'time', 'title', 'tr', 'track', 'u', 'ul', 'var', 'video', 'wbr', // SVG
@@ -309,11 +309,11 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(24)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(25)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(23)();
+  module.exports = __webpack_require__(24)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -324,8 +324,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return serializeStyles; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__emotion_hash__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__emotion_unitless__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__emotion_hash__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__emotion_unitless__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__emotion_memoize__ = __webpack_require__(7);
 
 
@@ -954,6 +954,120 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _styled = __webpack_require__(2);
+
+var _styled2 = _interopRequireDefault(_styled);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Container = _styled2.default.div({
+  width: "100%",
+  display: "flex",
+  justifyContent: "space-between",
+  position: "absolute",
+  top: "50%"
+});
+
+var NextButton = _styled2.default.button({
+  backgroundImage: "url(http://static.birgun.net/static/images/slider-arrow-right.svg)",
+  backgroundSize: "100%",
+  backgroundColor: "rgba(0, 0, 0, 0.2)",
+  height: 30,
+  width: 30,
+  borderRadius: 4,
+  color: "#fff",
+  border: "none",
+  cursor: "pointer",
+  outline: "none",
+  transition: "all 0.2s linear"
+});
+
+var PrevButton = _styled2.default.button({
+  backgroundImage: "url(http://static.birgun.net/static/images/slider-arrow-left.svg)",
+  backgroundSize: "100%",
+  backgroundColor: "rgba(0, 0, 0, 0.2)",
+  height: 30,
+  width: 30,
+  borderRadius: 4,
+  color: "#fff",
+  border: "none",
+  cursor: "pointer",
+  outline: "none",
+  transition: "all 0.2s linear"
+});
+
+var ButtonWrapper = function (_React$Component) {
+  _inherits(ButtonWrapper, _React$Component);
+
+  function ButtonWrapper() {
+    _classCallCheck(this, ButtonWrapper);
+
+    return _possibleConstructorReturn(this, (ButtonWrapper.__proto__ || Object.getPrototypeOf(ButtonWrapper)).apply(this, arguments));
+  }
+
+  _createClass(ButtonWrapper, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          onPrevClick = _props.onPrevClick,
+          onNextClick = _props.onNextClick;
+
+      return _react2.default.createElement(
+        Container,
+        null,
+        _react2.default.createElement(PrevButton, { onClick: function onClick() {
+            return onPrevClick();
+          } }),
+        _react2.default.createElement(NextButton, { onClick: function onClick() {
+            return onNextClick();
+          } })
+      );
+    }
+  }]);
+
+  return ButtonWrapper;
+}(_react2.default.Component);
+
+ButtonWrapper.propTypes = {
+  images: _propTypes2.default.object.isRequired
+};
+
+// Specifies the default values for props:
+ButtonWrapper.defaultProps = {
+  images: {
+    id: 0
+  }
+};
+
+exports.default = ButtonWrapper;
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _templateObject = _taggedTemplateLiteral(["\ndisplay: inline-block;\nmargin-right: 5px;\nwidth: 12px;\nheight: 12px;\nfont-size: 16px;\nline-height: 30px;\nborder-radius: 100%;\ntext-align: center;\nbackground-color: rgba(255, 255, 255, 0.8);\ncolor: #333;\ntext-indent: -9999px;\ncursor: pointer;\ntransition: all 0.2s linear;\n\n", "\n\n    &:last-child {\n      margin-right: 0;\n    }\n}"], ["\ndisplay: inline-block;\nmargin-right: 5px;\nwidth: 12px;\nheight: 12px;\nfont-size: 16px;\nline-height: 30px;\nborder-radius: 100%;\ntext-align: center;\nbackground-color: rgba(255, 255, 255, 0.8);\ncolor: #333;\ntext-indent: -9999px;\ncursor: pointer;\ntransition: all 0.2s linear;\n\n", "\n\n    &:last-child {\n      margin-right: 0;\n    }\n}"]);
 
 var _react = __webpack_require__(1);
@@ -1035,7 +1149,7 @@ var Indicator = function (_React$Component) {
 exports.default = Indicator;
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1133,13 +1247,13 @@ Slide.defaultProps = {
 exports.default = Slide;
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__emotion_sheet__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__emotion_stylis__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__emotion_weak_memoize__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__emotion_stylis__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__emotion_weak_memoize__ = __webpack_require__(21);
 
 
 
@@ -1350,7 +1464,7 @@ var createCache = function createCache(options) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1363,7 +1477,7 @@ var createCache = function createCache(options) {
 /* unused harmony export ClassNames */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__emotion_cache__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__emotion_cache__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__emotion_utils__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__emotion_serialize__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__emotion_sheet__ = __webpack_require__(8);
@@ -1737,7 +1851,7 @@ var ClassNames = withEmotionCache(function (props, context) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1781,7 +1895,7 @@ function murmurhash2_32_gc(str) {
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1804,16 +1918,16 @@ var index = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__emotion_memoize__
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__emotion_is_prop_valid__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__emotion_is_prop_valid__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_object_assign__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_object_assign___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_object_assign__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__emotion_core__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__emotion_core__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__emotion_utils__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__emotion_serialize__ = __webpack_require__(4);
 
@@ -1968,7 +2082,7 @@ var createStyled = function createStyled(tag, options) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2590,7 +2704,7 @@ function stylis_min (W) {
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2647,7 +2761,7 @@ var unitlessKeys = {
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2670,7 +2784,7 @@ var weakMemoize = function weakMemoize(func) {
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2694,15 +2808,15 @@ var _styled = __webpack_require__(2);
 
 var _styled2 = _interopRequireDefault(_styled);
 
-var _slide = __webpack_require__(12);
+var _slide = __webpack_require__(13);
 
 var _slide2 = _interopRequireDefault(_slide);
 
-var _indicator = __webpack_require__(11);
+var _indicator = __webpack_require__(12);
 
 var _indicator2 = _interopRequireDefault(_indicator);
 
-var _buttonWrapper = __webpack_require__(25);
+var _buttonWrapper = __webpack_require__(11);
 
 var _buttonWrapper2 = _interopRequireDefault(_buttonWrapper);
 
@@ -2713,6 +2827,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var AUTO_SLIDE_INTERVAL = 3000;
 
 var MainContainer = _styled2.default.div({
   position: "relative"
@@ -2747,7 +2863,8 @@ var SmartSlider = function (_React$Component) {
           autoSlide = _props.autoSlide,
           autoSlideInterval = _props.autoSlideInterval;
 
-      this.timer = autoSlide ? setInterval(this.autoSlide.bind(this), autoSlideInterval) : null;
+      var autoSlideIntVal = autoSlideInterval && autoSlideInterval >= AUTO_SLIDE_INTERVAL ? autoSlideInterval : AUTO_SLIDE_INTERVAL;
+      this.timer = autoSlide ? setInterval(this.autoSlide.bind(this), autoSlideIntVal) : null;
     }
   }, {
     key: "componentWillUnmount",
@@ -2867,13 +2984,13 @@ SmartSlider.defaultProps = {
   }],
   showIndicator: true,
   autoSlide: false,
-  autoSlideInterval: 3000
+  autoSlideInterval: AUTO_SLIDE_INTERVAL
 };
 
 exports.default = SmartSlider;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2972,7 +3089,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3038,7 +3155,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3054,7 +3171,7 @@ module.exports = function() {
 var assign = __webpack_require__(10);
 
 var ReactPropTypesSecret = __webpack_require__(5);
-var checkPropTypes = __webpack_require__(22);
+var checkPropTypes = __webpack_require__(23);
 
 var printWarning = function() {};
 
@@ -3599,120 +3716,6 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 };
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 25 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(3);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _styled = __webpack_require__(2);
-
-var _styled2 = _interopRequireDefault(_styled);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Container = _styled2.default.div({
-  width: "100%",
-  display: "flex",
-  justifyContent: "space-between",
-  position: "absolute",
-  top: "50%"
-});
-
-var NextButton = _styled2.default.button({
-  backgroundImage: "url(http://static.birgun.net/static/images/slider-arrow-right.svg)",
-  backgroundSize: "100%",
-  backgroundColor: "rgba(0, 0, 0, 0.2)",
-  height: 30,
-  width: 30,
-  borderRadius: 4,
-  color: "#fff",
-  border: "none",
-  cursor: "pointer",
-  outline: "none",
-  transition: "all 0.2s linear"
-});
-
-var PrevButton = _styled2.default.button({
-  backgroundImage: "url(http://static.birgun.net/static/images/slider-arrow-left.svg)",
-  backgroundSize: "100%",
-  backgroundColor: "rgba(0, 0, 0, 0.2)",
-  height: 30,
-  width: 30,
-  borderRadius: 4,
-  color: "#fff",
-  border: "none",
-  cursor: "pointer",
-  outline: "none",
-  transition: "all 0.2s linear"
-});
-
-var ButtonWrapper = function (_React$Component) {
-  _inherits(ButtonWrapper, _React$Component);
-
-  function ButtonWrapper() {
-    _classCallCheck(this, ButtonWrapper);
-
-    return _possibleConstructorReturn(this, (ButtonWrapper.__proto__ || Object.getPrototypeOf(ButtonWrapper)).apply(this, arguments));
-  }
-
-  _createClass(ButtonWrapper, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          onPrevClick = _props.onPrevClick,
-          onNextClick = _props.onNextClick;
-
-      return _react2.default.createElement(
-        Container,
-        null,
-        _react2.default.createElement(PrevButton, { onClick: function onClick() {
-            return onPrevClick();
-          } }),
-        _react2.default.createElement(NextButton, { onClick: function onClick() {
-            return onNextClick();
-          } })
-      );
-    }
-  }]);
-
-  return ButtonWrapper;
-}(_react2.default.Component);
-
-ButtonWrapper.propTypes = {
-  images: _propTypes2.default.object.isRequired
-};
-
-// Specifies the default values for props:
-ButtonWrapper.defaultProps = {
-  images: {
-    id: 0
-  }
-};
-
-exports.default = ButtonWrapper;
 
 /***/ })
 /******/ ]);

@@ -9,25 +9,50 @@
   "dependencies": {
     "@emotion/core": "^10.0.5",
     "@emotion/styled": "^10.0.5",
+    "babel-jest": "^23.6.0",
+    "babel-preset-react": "^6.24.1",
+    "jest": "^23.6.0",
     "prop-types": "^15.6.2",
-    "react": "^16.6.3",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-test-renderer": "^16.7.0",
     "webpack": "^2.6.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "webpack --watch",
     "build": "webpack"
   },
+  "keywords": [
+    "react",
+    "component",
+    "slider",
+    "gallery",
+    "slideshow",
+    "react-smart-slider",
+    "react-slider",
+    "react-gallery",
+    "react-slideshow",
+    "image slider",
+    "image gallery"
+  ],
   "author": {
     "name": "Rajesh kumar",
     "email": "rkverma510@gmail.com"
   },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/therkverma/react-smart-slider/issues"
+  },
+  "homepage": "https://github.com/therkverma/react-smart-slider#readme",
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-preset-env": "^1.5.1"
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.11.1",
+    "eslint-config-strongloop": "^2.1.0"
   }
 }
