@@ -1,18 +1,18 @@
-import React from "react";
-import styled from "@emotion/styled";
+import React from 'react';
+import styled from '@emotion/styled';
 
 const Container = styled.div({
-  position: "relative",
-})
+	position: 'relative',
+});
 
 const IndicatorWrapper = styled.ul({
-  zIndex: 2,
-  padding: 0,
-  margin: 0,
-  position: "absolute",
-  top: "-40px",
-  left: "50%",
-})
+	zIndex: 2,
+	padding: 0,
+	margin: 0,
+	position: 'absolute',
+	top: '-40px',
+	left: '50%',
+});
 
 const Indicate = styled.li`
 display: inline-block;
@@ -37,26 +37,23 @@ color: red;
     &:last-child {
       margin-right: 0;
     }
-}`
+}`;
 
 class Indicator extends React.Component {
-  render() {
-    const { slider, activeIndex, onClickIndicator } = this.props;
-    return (
-      <Container>
-        <IndicatorWrapper>
-          {slider.map((item, index) =>
-            <Indicate
-              key={index}
-              setActiveIndicator={index + 1 === activeIndex}
-              onClick={() => onClickIndicator(index + 1)}
-            />
-          )
-          }
-        </IndicatorWrapper>
-      </Container>
-    );
-  }
+	render() {
+		const { slider, activeIndex, onClickIndicator } = this.props;
+		return (
+			<Container>
+				<IndicatorWrapper>
+					{slider.map((item, index) => <Indicate key={index}
+						setActiveIndicator={index + 1 === activeIndex}
+						onClick={() => onClickIndicator(index + 1)}
+					/>)
+					}
+				</IndicatorWrapper>
+			</Container>
+		);
+	}
 }
 
 export default Indicator;
