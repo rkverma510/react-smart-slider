@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled'
-
+import styled from '@emotion/styled';
 
 const SlideList = styled.li`
   width: 100%;
@@ -27,36 +25,24 @@ const SlideList = styled.li`
 `;
 
 const SlideCaption = styled.p({
-  color: "#fff",
-  textTransform: "uppercase",
-  fontSize: "1.8em",
-  position: "absolute",
-  top: "45%",
-  left: 0,
-  right: 0,
-})
+	color: '#fff',
+	textTransform: 'uppercase',
+	fontSize: '1.8em',
+	position: 'absolute',
+	top: '45%',
+	left: 0,
+	right: 0,
+});
 
 class Slide extends React.Component {
-  render() {
-
-  const {currentIndex, activeIndex, item} = this.props;
-    return (
-      <SlideList showSlide={currentIndex+1 === activeIndex} url={item.url}>
-          <SlideCaption>{item.title}</SlideCaption>
-      </SlideList>
-    );
-  }
+	render() {
+		const { currentIndex, activeIndex, item } = this.props;
+		return (
+			<SlideList showSlide={currentIndex + 1 === activeIndex} url={item.url}>
+				<SlideCaption>{item.title}</SlideCaption>
+			</SlideList>
+		);
+	}
 }
-
-Slide.propTypes = {
-  images: PropTypes.object.isRequired,
-};
-
-// Specifies the default values for props:
-Slide.defaultProps = {
-  images: {
-    id: 0
-  },
-};
 
 export default Slide;
