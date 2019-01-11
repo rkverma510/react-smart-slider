@@ -1,13 +1,13 @@
 {
   "name": "react-smart-slider",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Easy to use React JS smart slider",
   "main": "build/index.js",
   "peerDependencies": {
     "react": "^16.6.3"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.5",
+    "@emotion/core": "^10.0.6",
     "@emotion/styled": "^10.0.5",
     "babel-jest": "^23.6.0",
     "babel-preset-react": "^6.24.1",
@@ -41,6 +41,10 @@
     "name": "Rajesh kumar",
     "email": "rkverma510@gmail.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/therkverma/react-smart-slider.git"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/therkverma/react-smart-slider/issues"
@@ -61,6 +65,7 @@
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.10.0",
-    "file-loader": "^3.0.1"
+    "file-loader": "^3.0.1",
+    "url-loader": "^1.1.2"
   }
 }

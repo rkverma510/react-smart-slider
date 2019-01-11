@@ -28,10 +28,10 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.(png|jpg|gif|svg)$/,
+				test: /\.(png|jp(e*)g|svg)$/,  
 				use: [
 					{
-						loader: 'file-loader',
+						loader: 'url-loader',
 						options: {},
 					},
 				],

@@ -4,6 +4,9 @@ import styled from '@emotion/styled';
 import Slide from './components/slide';
 import Indicator from './components/indicator';
 import ButtonWrapper from './components/button-wrapper';
+import slideOne from '../public/images/slide-1.jpg';
+import slideTwo from '../public/images/slide-2.jpg';
+import slideThree from '../public/images/slide-3.jpg';
 
 const AUTO_SLIDE_INTERVAL = 3000;
 
@@ -125,15 +128,15 @@ SmartSlider.propTypes = {
 SmartSlider.defaultProps = {
 	slides: [{
 		title: 'Original Image 1',
-		url: 'https://www.pixelstalk.net/wp-content/uploads/images2/Halloween-wallpaper-1080p-1920x1080.jpg',
+		url: `${slideOne}`,
 	},
 	{
 		title: 'Original Image 2',
-		url: 'https://newevolutiondesigns.com/images/freebies/hd-wallpaper-37.jpg',
+		url: `${slideTwo}`,
 	},
 	{
 		title: 'Original Image 3',
-		url: 'https://www.pixelstalk.net/wp-content/uploads/2016/07/1080p-hd-wallpapers-3d-free.jpg',
+		url: `${slideThree}`,
 	}],
 	showIndicator: true,
 	autoSlide: false,
