@@ -8,7 +8,7 @@ Easy to use React JS smart slider
 
 [Demo](https://github.com/therkverma/react-smart-slider/) - [Codesandbox Playground](https://codesandbox.io/s/jpo4ypo9wv)
 
-![Preview](https://res.cloudinary.com/therkverma-github-io/image/upload/v1547231907/react-smart-slider.png)
+![Preview](https://res.cloudinary.com/therkverma-github-io/image/upload/fl_animated/v1547231907/react-smart-slider.png)
 
 ### Installation
 
