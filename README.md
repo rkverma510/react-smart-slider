@@ -1,5 +1,14 @@
 # react-smart-slider
+
+[![npm version](https://img.shields.io/npm/v/react-smart-slider.svg)](https://www.npmjs.com/package/react-smart-slider)
+[![downloads](https://img.shields.io/npm/dt/react-smart-slider.svg)](https://www.npmjs.com/package/react-smart-slider)
+
+
 Easy to use React JS smart slider
+
+[Demo](https://github.com/therkverma/react-smart-slider/) - [Codesandbox Playground](https://codesandbox.io/s/jpo4ypo9wv)
+
+![Preview](https://res.cloudinary.com/therkverma-github-io/image/upload/v1547231907/react-smart-slider.png)
 
 ### Installation
 
