@@ -16,7 +16,7 @@ module.exports = {
 				use: [{
 					loader: 'babel-loader',
 					options: {
-						presets: ['env'],
+						presets: ['@babel/preset-env'],
 					},
 				},
 				{
@@ -28,7 +28,7 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.(png|jp(e*)g|svg)$/,  
+				test: /\.(png|jp(e*)g|svg)$/,
 				use: [
 					{
 						loader: 'url-loader',

@@ -2,6 +2,8 @@
 
 [![npm version](https://img.shields.io/npm/v/react-smart-slider.svg)](https://www.npmjs.com/package/react-smart-slider)
 [![downloads](https://img.shields.io/npm/dt/react-smart-slider.svg)](https://www.npmjs.com/package/react-smart-slider)
+[![dependencies](https://david-dm.org/therkverma/react-smart-slider.svg)](https://david-dm.org/therkverma/react-smart-slider)
+[![devDependencies](https://david-dm.org/therkverma/react-smart-slider/dev-status.svg)](https://david-dm.org/therkverma/react-smart-slider?type=dev)
 
 
 Easy to use React JS smart slider
@@ -40,7 +42,7 @@ The image slider's indicator will be visible or not.
 
 Set true if you want to autoScroll slider image, by default it is false.
 
-##### autoSlideInterval {number} default: 3000
+##### autoSlideInterval {number} default: 2000
 
 Set autoSlideInterval value for autoScroll. By default it will be 3000ms. It is minimum time period you can set more than default time value.
 

@@ -4,11 +4,8 @@ import styled from '@emotion/styled';
 import Slide from './components/slide';
 import Indicator from './components/indicator';
 import ButtonWrapper from './components/button-wrapper';
-import slideOne from '../public/images/slide-1.jpg';
-import slideTwo from '../public/images/slide-2.jpg';
-import slideThree from '../public/images/slide-3.jpg';
 
-const AUTO_SLIDE_INTERVAL = 3000;
+const AUTO_SLIDE_INTERVAL = 2000;
 
 const MainContainer = styled.div({
 	position: 'relative',
@@ -128,15 +125,15 @@ SmartSlider.propTypes = {
 SmartSlider.defaultProps = {
 	slides: [{
 		title: 'Original Image 1',
-		url: `${slideOne}`,
+		url: 'https://i.imgur.com/ehKbQ0F.jpg',
 	},
 	{
 		title: 'Original Image 2',
-		url: `${slideTwo}`,
+		url: 'https://i.imgur.com/t2a1zLi.jpg',
 	},
 	{
 		title: 'Original Image 3',
-		url: `${slideThree}`,
+		url: 'https://i.imgur.com/e1aY1E5.jpg',
 	}],
 	showIndicator: true,
 	autoSlide: false,
