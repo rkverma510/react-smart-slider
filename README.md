@@ -42,7 +42,7 @@ The image slider's indicator will be visible or not.
 
 Set true if you want to autoScroll slider image, by default it is false.
 
-##### autoSlideInterval {number} default: 2000
+##### autoSlideInterval {number} default: 3000
 
 Set autoSlideInterval value for autoScroll. By default it will be 3000ms. It is minimum time period you can set more than default time value.
 

@@ -1,24 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 import Slide from './components/slide';
 import Indicator from './components/indicator';
 import ButtonWrapper from './components/button-wrapper';
+import '../public/styles.css';
 
-const AUTO_SLIDE_INTERVAL = 2000;
+const AUTO_SLIDE_INTERVAL = 3000;
 
-const MainContainer = styled.div({
-	position: 'relative',
-});
-
-const Container = styled.div({
-	overflow: 'hidden',
-	minHeight: (window.innerWidth > 450) ? 450 : window.innerHeight / 3,
-	border: '1px solid #333',
-});
-
-const SlideContainer = styled.ul({
-});
 
 class SmartSlider extends React.Component {
 	constructor(props) {
@@ -89,9 +77,11 @@ class SmartSlider extends React.Component {
 		const { slides, showIndicator } = this.props;
 
 		return (
-			<MainContainer>
-				<Container>
-					<SlideContainer>
+			<div className="mainContainer">
+				<div className="slideContainer" style={{
+					minHeight: (window.innerWidth > 450) ? 450 : window.innerHeight / 3,
+				}}>
+					<ul>
 						{slides.map((item, index) => <Slide
 							key={index}
 							currentIndex={index}
@@ -99,8 +89,8 @@ class SmartSlider extends React.Component {
 							item={item}
 						/>)
 						}
-					</SlideContainer>
-				</Container>
+					</ul>
+				</div>
 				<ButtonWrapper
 					onPrevClick={this.prevSlide.bind(this)}
 					onNextClick={this.nextSlide.bind(this)} />
@@ -109,7 +99,7 @@ class SmartSlider extends React.Component {
 					activeIndex={activeIndex}
 					onClickIndicator={this.clickIndicator.bind(this)}
 				/>}
-			</MainContainer>
+			</div>
 		);
 	}
 }
