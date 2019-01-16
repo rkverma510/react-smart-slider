@@ -1,6 +1,6 @@
 {
   "name": "react-smart-slider",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Easy to use React JS smart slider",
   "main": "build/index.js",
   "peerDependencies": {
@@ -33,7 +33,6 @@
   },
   "keywords": [
     "react",
-    "component",
     "slider",
     "gallery",
     "slideshow",
@@ -42,7 +41,8 @@
     "react-gallery",
     "react-slideshow",
     "image slider",
-    "image gallery"
+    "image gallery",
+    "animated slider"
   ],
   "author": {
     "name": "Rajesh kumar",

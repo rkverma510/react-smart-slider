@@ -2,7 +2,7 @@ import React from 'react';
 
 class Slide extends React.Component {
 	render() {
-		const { currentIndex, activeIndex, item } = this.props;
+		const { currentIndex, activeIndex, item, captionStyle } = this.props;
 		return (
 			<li className="slideList" style={
 				{
@@ -12,7 +12,7 @@ class Slide extends React.Component {
 					opacity: (currentIndex + 1 === activeIndex) ? 1 : 0,
 				}
 			}>
-				<p className="slideCaption">{item.title}</p>
+				<p style={item.customCaptionStyle ? item.customCaptionStyle : captionStyle} className="slideCaption">{item.title}</p>
 			</li>
 		);
 	}

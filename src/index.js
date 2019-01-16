@@ -74,7 +74,7 @@ class SmartSlider extends React.Component {
 
 	render() {
 		const { activeIndex } = this.state;
-		const { slides, showIndicator } = this.props;
+		const { slides, showIndicator, captionStyle } = this.props;
 
 		return (
 			<div className="mainContainer">
@@ -87,6 +87,7 @@ class SmartSlider extends React.Component {
 							currentIndex={index}
 							activeIndex={activeIndex}
 							item={item}
+							captionStyle={captionStyle}
 						/>)
 						}
 					</ul>
@@ -109,6 +110,7 @@ SmartSlider.propTypes = {
 	showIndicator: PropTypes.bool,
 	autoSlide: PropTypes.bool,
 	autoSlideInterval: PropTypes.number,
+	captionStyle: PropTypes.object,
 };
 
 // Specifies the default values for props:
@@ -116,18 +118,22 @@ SmartSlider.defaultProps = {
 	slides: [{
 		title: 'Original Image 1',
 		url: 'https://i.imgur.com/ehKbQ0F.jpg',
+		customCaptionStyle: {},
 	},
 	{
 		title: 'Original Image 2',
 		url: 'https://i.imgur.com/t2a1zLi.jpg',
+		customCaptionStyle: {},
 	},
 	{
 		title: 'Original Image 3',
 		url: 'https://i.imgur.com/e1aY1E5.jpg',
+		customCaptionStyle: {},
 	}],
 	showIndicator: true,
 	autoSlide: false,
 	autoSlideInterval: AUTO_SLIDE_INTERVAL,
+	captionStyle: {},
 };
 
 export default SmartSlider;

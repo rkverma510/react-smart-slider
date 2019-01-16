@@ -23,7 +23,7 @@ npm install react-smart-slider
 #### Smart slider:
 
 ```javascript
-React.render(<SmartSlider slides={slidesArray} />, document.body);
+React.render(<SmartSlider slides={slidesArray} autoSlide={true} />, document.body);
 ```
 
 Now you can style it as you want. Checkout the `index.html` example to see how.
@@ -32,15 +32,48 @@ Now you can style it as you want. Checkout the `index.html` example to see how.
 
 ##### slides {sliesArray} default: [{title: "caption_title", url: "https://www.abc.jpg/"}]
 
+For Example:-
+const slidesArray = [
+      {
+        title: "Caption 1", url: "https://i.imgur.com/7u8i7L1.jpg"
+      },
+      {
+        title: "Caption 2", url: "https://i.imgur.com/E8gkF2f.jpg"
+      },
+      {
+        title: "Caption 3",
+        url: "https://i.imgur.com/t2a1zLi.jpg",
+
+        // Set this key, if you want to update style for specific slide caption
+        customCaptionStyle: {
+          "color": "#7fffd4",
+          "font-weight": "bold",
+        }
+      },
+    ];
+
 sliesArray is the set of images, that you want to add, caption title value is optional, if you don't want to show caption on image then leave it blank.
+    If you want to style diffrent design for every slide's caption then pass style on `customCaptionStyle` key of slide's object, otherwise leave it blank.
+
+
+##### captionStyle {object} default: {}
+
+The captionStyle is used for update captionStyle for all caption. if you to change and apply same style on all caption, then create captionStyle key like this:-
+const captionStyle = {
+      "color": "#ffe4c4",
+      "font-weight": "bold"
+    }
+
 
 ##### showIndicators {boolean} default: true
 
 The image slider's indicator will be visible or not.
 
+
 ##### autoSlide {boolean} default: false
 
 Set true if you want to autoScroll slider image, by default it is false.
+
 
 ##### autoSlideInterval {number} default: 3000
 
