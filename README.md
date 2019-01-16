@@ -30,9 +30,10 @@ Now you can style it as you want. Checkout the `index.html` example to see how.
 
 ### Properties
 
-##### slides {sliesArray} default: [{title: "caption_title", url: "https://www.abc.jpg/"}]
+##### slides {slidesArray} default: [{title: "caption_title", url: "https://www.abc.jpg/"}]
 
 For Example:-
+```javascript
 const slidesArray = [
       {
         title: "Caption 1", url: "https://i.imgur.com/7u8i7L1.jpg"
@@ -51,8 +52,8 @@ const slidesArray = [
         }
       },
     ];
-
-sliesArray is the set of images, that you want to add, caption title value is optional, if you don't want to show caption on image then leave it blank.
+```
+slidesArray is the set of images, that you want to add, caption title value is optional, if you don't want to show caption on image then leave it blank.
     If you want to style diffrent design for every slide's caption then pass style on `customCaptionStyle` key of slide's object, otherwise leave it blank.
 
 
