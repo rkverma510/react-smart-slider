@@ -10,7 +10,7 @@ Easy to use React JS smart slider
 
 [Demo](https://github.com/therkverma/react-smart-slider/) - [Codesandbox Playground](https://codesandbox.io/s/jpo4ypo9wv)
 
-![Preview](https://res.cloudinary.com/therkverma-github-io/image/upload/fl_animated/v1547741460/react-smart-slider.gif)
+![Preview](https://res.cloudinary.com/therkverma-github-io/image/upload/fl_apng/v1547741460/react-smart-slider.png)
 
 ### Installation
 
@@ -59,7 +59,7 @@ slidesArray is the set of images, that you want to add, caption title value is o
 
 ##### captionStyle {object} (Optional)
 
-The captionStyle is used for update captionStyle for all caption. if you to change and apply same style on all caption, then create captionStyle key like this:-
+The `captionStyle` is used for update captionStyle for all caption. if you to change and apply same style on all caption, then create `captionStyle` key like this:-
 
 ```javascript
 const captionStyle = {
