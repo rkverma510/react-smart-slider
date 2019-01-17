@@ -10,7 +10,7 @@ Easy to use React JS smart slider
 
 [Demo](https://github.com/therkverma/react-smart-slider/) - [Codesandbox Playground](https://codesandbox.io/s/jpo4ypo9wv)
 
-![Preview](https://res.cloudinary.com/therkverma-github-io/image/upload/fl_animated/v1547231907/react-smart-slider.png)
+![Preview](https://res.cloudinary.com/therkverma-github-io/image/upload/fl_animated/v1547741460/react-smart-slider.gif)
 
 ### Installation
 
@@ -30,7 +30,7 @@ Now you can style it as you want. Checkout the `index.html` example to see how.
 
 ### Properties
 
-##### slides {slidesArray} default: [{title: "caption_title", url: "https://www.abc.jpg/"}]
+##### Pass slides {slidesArray}
 
 For Example:-
 ```javascript
@@ -45,7 +45,7 @@ const slidesArray = [
         title: "Caption 3",
         url: "https://i.imgur.com/t2a1zLi.jpg",
 
-        // Set this key, if you want to update style for specific slide caption
+        // Set this key, with every slide if you want to update style for specific slide caption, Otherwise don't set it.
         customCaptionStyle: {
           "color": "#7fffd4",
           "font-weight": "bold",
@@ -57,13 +57,16 @@ slidesArray is the set of images, that you want to add, caption title value is o
     If you want to style diffrent design for every slide's caption then pass style on `customCaptionStyle` key of slide's object, otherwise leave it blank.
 
 
-##### captionStyle {object} default: {}
+##### captionStyle {object} (Optional)
 
 The captionStyle is used for update captionStyle for all caption. if you to change and apply same style on all caption, then create captionStyle key like this:-
+
+```javascript
 const captionStyle = {
       "color": "#ffe4c4",
       "font-weight": "bold"
     }
+```
 
 
 ##### showIndicators {boolean} default: true
