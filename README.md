@@ -6,7 +6,7 @@
 [![devDependencies](https://david-dm.org/therkverma/react-smart-slider/dev-status.svg)](https://david-dm.org/therkverma/react-smart-slider?type=dev)
 
 
-Easy to use React JS smart slider
+Super light-weight, easy to use React JS smart slider
 
 [Demo](https://github.com/therkverma/react-smart-slider/) - [Codesandbox Playground](https://codesandbox.io/s/jpo4ypo9wv)
 
@@ -26,13 +26,13 @@ npm install react-smart-slider
 React.render(<SmartSlider slides={slidesArray} autoSlide={true} />, document.body);
 ```
 
-Now you can style it as you want. Checkout the `index.html` example to see how.
+Now you can style it as you want. Checkout the [Codesandbox Playground](https://codesandbox.io/s/jpo4ypo9wv) example to see how.
 
 ### Properties
 
-##### Pass slides {slidesArray}
+##### slides {slidesArray}
 
-For Example:-
+Example:-
 ```javascript
 const slidesArray = [
       {
@@ -45,7 +45,7 @@ const slidesArray = [
         title: "Caption 3",
         url: "https://i.imgur.com/t2a1zLi.jpg",
 
-        // Set this key, with every slide if you want to update style for specific slide caption, Otherwise don't set it.
+        // (Optional) Set if you want to update style for specific slide caption.
         customCaptionStyle: {
           "color": "#7fffd4",
           "font-weight": "bold",
@@ -82,6 +82,11 @@ Set true if you want to autoScroll slider image, by default it is false.
 ##### autoSlideInterval {number} default: 3000
 
 Set autoSlideInterval value for autoScroll. By default it will be 3000ms. It is minimum time period you can set more than default time value.
+
+
+##### buttonShape {string} default: square
+
+Set buttonShape value for Next/Previous button. You can choose with two options, `round` and `square`. By default it is `square`.
 
 
 ### License

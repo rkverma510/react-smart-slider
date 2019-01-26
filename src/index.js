@@ -74,7 +74,7 @@ class SmartSlider extends React.Component {
 
 	render() {
 		const { activeIndex } = this.state;
-		const { slides, showIndicator, captionStyle } = this.props;
+		const { slides, showIndicator, captionStyle, buttonShape } = this.props;
 
 		return (
 			<div className="mainContainer">
@@ -93,6 +93,7 @@ class SmartSlider extends React.Component {
 					</ul>
 				</div>
 				<ButtonWrapper
+					shape={buttonShape}
 					onPrevClick={this.prevSlide.bind(this)}
 					onNextClick={this.nextSlide.bind(this)} />
 				{showIndicator && <Indicator
@@ -111,6 +112,7 @@ SmartSlider.propTypes = {
 	autoSlide: PropTypes.bool,
 	autoSlideInterval: PropTypes.number,
 	captionStyle: PropTypes.object,
+	buttonShape: PropTypes.string,
 };
 
 // Specifies the default values for props:
@@ -134,6 +136,7 @@ SmartSlider.defaultProps = {
 	autoSlide: false,
 	autoSlideInterval: AUTO_SLIDE_INTERVAL,
 	captionStyle: {},
+	buttonShape: 'square',
 };
 
 export default SmartSlider;
