@@ -1,6 +1,6 @@
 {
   "name": "react-smart-slider",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Super light-weight, easy to use React JS smart slider",
   "main": "build/index.js",
   "peerDependencies": {
