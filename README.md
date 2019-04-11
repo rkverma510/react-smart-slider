@@ -47,8 +47,8 @@ const slidesArray = [
 
         // (Optional) Set if you want to update style for specific slide caption.
         customCaptionStyle: {
-          "color": "#7fffd4",
-          "font-weight": "bold",
+          color: "#7fffd4",
+          fontWeight: "bold",
         }
       },
     ];
@@ -63,8 +63,8 @@ The `captionStyle` is used for update captionStyle for all caption. if you to ch
 
 ```javascript
 const captionStyle = {
-      "color": "#ffe4c4",
-      "font-weight": "bold"
+      color: "#ffe4c4",
+      fontWeight: "bold"
     }
 ```
 
