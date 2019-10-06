@@ -2,7 +2,7 @@ import React from 'react';
 
 class Indicator extends React.Component {
 	render() {
-		const { slider, activeIndex, onClickIndicator } = this.props;
+		const { slider, activeIndex } = this.props;
 		return (
 			<div className="indicatorContainer">
 				<ul className="indicatorWrapperUl">
@@ -15,7 +15,6 @@ class Indicator extends React.Component {
 								} :
 								{}
 						}
-						onClick={() => onClickIndicator(index + 1)}
 					/>)
 					}
 				</ul>

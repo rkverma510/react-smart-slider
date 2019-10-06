@@ -34,44 +34,53 @@ Now you can style it as you want. Checkout the [Codesandbox Playground](https://
 
 Example:-
 ```javascript
+
+// DummyCaption component for example
+const DummyCaption = ({ caption }) => (
+  <div style={{
+    position: 'absolute',
+    right: 100,
+    top: 250,
+    fontSize: 38,
+    padding: 55,
+    border: 'solid 1px',
+  }}>
+    {caption}
+  </div>
+)
+
 const slidesArray = [
       {
-        title: "Caption 1", url: "https://i.imgur.com/7u8i7L1.jpg"
-      },
-      {
-        title: "Caption 2", url: "https://i.imgur.com/E8gkF2f.jpg"
-      },
-      {
-        title: "Caption 3",
-        url: "https://i.imgur.com/t2a1zLi.jpg",
+        url: "https://i.imgur.com/7u8i7L1.jpg",
 
-        // (Optional) Set if you want to update style for specific slide caption.
-        customCaptionStyle: {
-          color: "#7fffd4",
-          fontWeight: "bold",
-        }
+        // (Optional) Set if you want to add any content on your slide
+        childrenElem: <DummyCaption caption="Caption 1" />
+      },
+      {
+        url: "https://i.imgur.com/E8gkF2f.jpg",
+        childrenElem: <DummyCaption caption="Caption 2" />
+      },
+      {
+        url: "https://i.imgur.com/t2a1zLi.jpg",
+        childrenElem: <DummyCaption caption="Caption 3" />
       },
     ];
 ```
 slidesArray is the set of images, that you want to add, caption title value is optional, if you don't want to show caption on image then leave it blank.
-    If you want to style diffrent design for every slide's caption then pass style on `customCaptionStyle` key of slide's object, otherwise leave it blank.
+    If you want to add some content on slide then pass component on `childrenElem` key of slide's object, otherwise leave it blank.
 
 
-##### captionStyle {object} (Optional)
+##### childrenElem {component} (Optional)
 
-The `captionStyle` is used for update captionStyle for all caption. if you to change and apply same style on all caption, then create `captionStyle` key like this:-
-
-```javascript
-const captionStyle = {
-      color: "#ffe4c4",
-      fontWeight: "bold"
-    }
-```
-
+The `childrenElem` is used for add content over the slide. if you want to add some content over the layer, then create `childrenElem` key.
 
 ##### showIndicators {boolean} default: true
 
 The image slider's indicator will be visible or not.
+
+##### height {number} default: 500
+
+The height of slide container, by default it is 500.
 
 
 ##### autoSlide {boolean} default: false
