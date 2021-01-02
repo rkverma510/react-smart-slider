@@ -7,7 +7,6 @@ import '../public/styles.css';
 
 const AUTO_SLIDE_INTERVAL = 3000;
 
-
 class SmartSlider extends React.Component {
 	constructor(props) {
 		super(props);
@@ -98,7 +97,6 @@ class SmartSlider extends React.Component {
 
 		this.setState({ startTouchX: 0, currentTouchX: 0 });
 	};
-
 
 	onWrapperMouseMove = (e) => {
 		if (this.state.startSwipe) {
