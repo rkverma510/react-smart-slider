@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import Slide from './components/slide';
 import Indicator from './components/indicator';
@@ -7,80 +7,94 @@ import '../public/styles.css';
 
 const AUTO_SLIDE_INTERVAL = 3000;
 
-class SmartSlider extends React.Component {
-	constructor(props) {
-		super(props);
-		this.imageContainerRef = React.createRef();
-		this.state = ({
-			activeIndex: 1,
-			translateX: 0,
-			currentTouchX: 0,
-			startSwipe: false,
-		});
+const SmartSlider = ({
+	autoSlide, autoSlideInterval,
+	slides, showIndicator, height, buttonShape
+}) => {
+	let imageContainerRef = useRef()
+	let timer = null
+
+	const [allSlides, setSlides] = useState(slides)
+
+	const [stateObj, setStateObj] = useState({
+		activeIndex: 1,
+		translateX: 0,
+		currentTouchX: 0,
+		startSwipe: false
+	})
+
+	const handleStateObj = (newState) => setStateObj((prevState) => ({
+		...prevState,
+		...newState
+	}))
+
+	const nextSlide = () => {
+		const { activeIndex, translateX } = stateObj
+		if (activeIndex === slides.length) {
+			handleStateObj({
+				activeIndex: activeIndex - slides.length + 1,
+				translateX: 0
+			});
+		} else {
+			const { offsetWidth } = imageContainerRef;
+			handleStateObj({
+				translateX: translateX + offsetWidth,
+				activeIndex: activeIndex + 1
+			})
+
+			// HINT: Will implement it later
+			setSlides((prevState) => ([
+				...prevState.slice(1),
+				...allSlides.slice(0, 1)
+			]))
+		}
 	}
 
-	componentDidMount = () => {
-		const { autoSlide, autoSlideInterval } = this.props;
+	useEffect(() => {
+		// Initiate the event handler
 		const autoSlideIntVal = autoSlideInterval && autoSlideInterval >= AUTO_SLIDE_INTERVAL ?
 			autoSlideInterval :
 			AUTO_SLIDE_INTERVAL;
-		this.timer = autoSlide ?
-			setInterval(() => this.nextSlide(), autoSlideIntVal) :
+		timer = autoSlide ?
+			setInterval(() => nextSlide(), autoSlideIntVal) :
 			null;
-	}
 
-	componentWillUnmount = () => {
-		clearInterval(this.timer);
-	}
+		// This will clean up the event every time the component is re-rendered
+		return function cleanup() {
+			clearInterval(timer)
+		}
+	})
 
-	prevSlide = () => {
-		const { activeIndex } = this.state;
-		const { slides } = this.props;
-		const { offsetWidth } = this.imageContainerRef;
+	const prevSlide = () => {
+		const { activeIndex } = stateObj;
+		const { offsetWidth } = imageContainerRef;
 		if (activeIndex === 1) {
 			const newIndex = activeIndex + slides.length - 1;
-			this.setState({
+			handleStateObj({
 				activeIndex: newIndex,
-				translateX: (newIndex - 1) * offsetWidth,
+				translateX: (newIndex - 1) * offsetWidth
 			});
 		} else {
 			const newIndex = activeIndex - 1;
-			this.setState({
+			handleStateObj({
 				activeIndex: newIndex,
-				translateX: (newIndex - 1) * offsetWidth,
+				translateX: (newIndex - 1) * offsetWidth
 			});
 		}
 	}
 
-	nextSlide = () => {
-		const { activeIndex, translateX } = this.state;
-		const { slides } = this.props;
-		if (activeIndex === slides.length) {
-			this.setState({
-				activeIndex: activeIndex - slides.length + 1,
-				translateX: 0,
-			});
-		} else {
-			const { offsetWidth } = this.imageContainerRef;
-			this.setState({
-				translateX: translateX + offsetWidth,
-				activeIndex: activeIndex + 1,
-			});
-		}
-	}
-
-	onWrapperMouseDown = (e) => {
+	const onWrapperMouseDown = (e) => {
 		e.preventDefault();
-		this.setState({
+		handleStateObj({
 			startTouchX: e.clientX,
-			startSwipe: true,
+			startSwipe: true
 		});
 	};
 
-	onWrapperMouseUp = (e) => {
-		this.setState({ startSwipe: false });
-		const touchRelativeX = this.state.startTouchX - e.clientX;
-		const { offsetWidth } = this.imageContainerRef;
+	const onWrapperMouseUp = (e) => {
+		handleStateObj({ startSwipe: false });
+		const touchRelativeX = stateObj.startTouchX - e.clientX;
+		const { offsetWidth } = imageContainerRef;
 
 		// When the user swipes to 0.25 of the next item
 		const threshold = 0.25;
@@ -89,71 +103,59 @@ class SmartSlider extends React.Component {
 
 		if (noOfItemsToSwipe > 0) {
 			if (touchRelativeX < 0) {
-				this.prevSlide();
+				prevSlide();
 			} else {
-				this.nextSlide();
+				nextSlide();
 			}
 		}
 
-		this.setState({ startTouchX: 0, currentTouchX: 0 });
+		handleStateObj({ startTouchX: 0, currentTouchX: 0 });
 	};
 
-	onWrapperMouseMove = (e) => {
-		if (this.state.startSwipe) {
-			const { startTouchX } = this.state;
-			this.setState({ currentTouchX: ((startTouchX - e.clientX) * -1) });
+	const onWrapperMouseMove = (e) => {
+		if (stateObj.startSwipe) {
+			const { startTouchX } = stateObj;
+			handleStateObj({ currentTouchX: ((startTouchX - e.clientX) * -1) });
 		}
 	}
 
-	autoSlide() {
-		const { activeIndex } = this.state;
-		const { slides } = this.props;
-		this.setState({
-			activeIndex: activeIndex < slides.length ? activeIndex + 1 : 1,
-		});
-	}
+	const { activeIndex, translateX, currentTouchX } = stateObj;
 
-	render() {
-		const { activeIndex, translateX, currentTouchX } = this.state;
-		const { slides, showIndicator, height, buttonShape } = this.props;
-
-		return (
-			<div className="mainContainer">
-				<div className="slideContainer" style={{
-					minHeight: (window.innerWidth > 450) ? 450 : window.innerHeight / 3,
-				}}>
-					<div className="slidesHolder" style={{
+	return (
+		<div className="mainContainer">
+			<div className="slideContainer" style={{
+				minHeight: (window.innerWidth > 450) ? 450 : window.innerHeight / 3
+			}}>
+				<div className="slidesHolder"
+					onMouseDown={onWrapperMouseDown}
+					onMouseUp={onWrapperMouseUp}
+					onMouseMove={onWrapperMouseMove}
+					ref={(node) => { imageContainerRef = node }}
+					style={{
 						height,
 						transitionDuration: currentTouchX ? '0s' : '0.5s',
-						transform: `translateX(${(translateX - currentTouchX) * -1}px)`,
+						transform: `translate3d(${(translateX - currentTouchX) * -1}px, 0, 0)`
 					}}
-					onMouseDown={this.onWrapperMouseDown}
-					onMouseUp={this.onWrapperMouseUp}
-					onMouseMove={this.onWrapperMouseMove}
-					ref={(node) => {
-						this.imageContainerRef = node;
-					}}
-					>
-						{slides.map((item, index) => <Slide
-							key={index}
-							currentIndex={index}
-							activeIndex={activeIndex}
-							item={item}
-						/>)
-						}
-					</div>
+				>
+					{slides.map((item, index) => <Slide
+						key={index}
+						currentIndex={index}
+						activeIndex={activeIndex}
+						item={item}
+					/>)
+					}
 				</div>
-				<ButtonWrapper
-					shape={buttonShape}
-					onPrevClick={() => this.prevSlide()}
-					onNextClick={() => this.nextSlide()} />
-				{showIndicator && <Indicator
-					slider={slides}
-					activeIndex={activeIndex}
-				/>}
 			</div>
-		);
-	}
+			<ButtonWrapper
+				shape={buttonShape}
+				onPrevClick={() => prevSlide()}
+				onNextClick={() => nextSlide()} />
+			{showIndicator && <Indicator
+				slider={slides}
+				activeIndex={activeIndex}
+			/>}
+		</div>
+	)
 }
 
 SmartSlider.propTypes = {
@@ -163,29 +165,29 @@ SmartSlider.propTypes = {
 	height: PropTypes.number,
 	childrenElem: PropTypes.any,
 	autoSlideInterval: PropTypes.number,
-	buttonShape: PropTypes.string,
+	buttonShape: PropTypes.string
 };
 
 // Specifies the default values for props:
 SmartSlider.defaultProps = {
 	slides: [{
 		childrenElem: false,
-		url: 'https://i.imgur.com/ehKbQ0F.jpg',
+		url: 'https://i.imgur.com/ehKbQ0F.jpg'
 	},
 	{
 		childrenElem: false,
-		url: 'https://i.imgur.com/t2a1zLi.jpg',
+		url: 'https://i.imgur.com/t2a1zLi.jpg'
 	},
 	{
 		childrenElem: false,
-		url: 'https://i.imgur.com/e1aY1E5.jpg',
+		url: 'https://i.imgur.com/e1aY1E5.jpg'
 	}],
 	showIndicator: true,
 	autoSlide: false,
 	autoSlideInterval: AUTO_SLIDE_INTERVAL,
 	height: 500,
 	childrenElem: false,
-	buttonShape: 'square',
+	buttonShape: 'square'
 };
 
-export default SmartSlider;
+export default SmartSlider

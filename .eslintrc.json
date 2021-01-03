@@ -21,6 +21,9 @@
     "rules": {
         "no-tabs": "off",
         "linebreak-style": 0,
+        "semi": 0,
+        "eol-last": 0,
+        "comma-dangle": [2, "never"],
         "indent": [
             "error",
             "tab",
